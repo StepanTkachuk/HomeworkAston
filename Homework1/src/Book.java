@@ -6,6 +6,7 @@ public class Book {
     private int year;
     private boolean isAvailable;
 
+
     public Book(String title, String author, int year, boolean isAvailable) {
         this.title = title;
         this.author = author;
@@ -16,16 +17,8 @@ public class Book {
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
-    }
-
-    public void borrowBook() {
-        this.isAvailable = false;
-        Library.books.remove(this);
-    }
-
-    public void returnBook() {
+        this.year = 2024;
         this.isAvailable = true;
-        Library.books.add(this);
     }
 
     public void displayInfo() {
@@ -37,9 +30,14 @@ public class Book {
         return isAvailable;
     }
 
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
+
     public String getAuthor() {
         return author;
     }
+
 
     @Override
     public boolean equals(Object o) {
